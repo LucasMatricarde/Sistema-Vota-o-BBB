@@ -1,1 +1,1 @@
-# Sistema-Vota-o-BBB
+# Sistema Votação BBB
