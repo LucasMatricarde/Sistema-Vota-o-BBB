@@ -1,35 +1,32 @@
 package com.lucasmatricarde.sistemavotacaobbb.controller;
 
-import com.lucasmatricarde.sistemavotacaobbb.model.ParametroModel;
+import com.lucasmatricarde.sistemavotacaobbb.model.Parametro;
 import com.lucasmatricarde.sistemavotacaobbb.repository.ParametroRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
 @RestController
+@AllArgsConstructor
 @RequestMapping("/api/parametros")
 public class ParametroController {
 
     private final ParametroRepository parametroRepository;
 
-    public ParametroController(ParametroRepository parametroRepository) {
-        this.parametroRepository = parametroRepository;
-    }
-
     @PostMapping("/save")
-    public ResponseEntity<ParametroModel> save(@RequestBody ParametroModel parametroModel) {
-        ParametroModel savedParametroModel = parametroRepository.save(parametroModel);
-        return ResponseEntity.ok(savedParametroModel);
+    public ResponseEntity<Parametro> save(@RequestBody Parametro parametro) {
+        Parametro savedParametro = parametroRepository.save(parametro);
+        return ResponseEntity.ok(savedParametro);
     }
 
     @GetMapping("/get")
-    public ResponseEntity<ParametroModel> get(@RequestParam String key) {
-        Optional<ParametroModel> optParametroModelFound = parametroRepository.findById(key);
-        if(optParametroModelFound.isEmpty()) {
+    public ResponseEntity<Parametro> get(@RequestParam String key) {
+        Optional<Parametro> optParametroFound = parametroRepository.findById(key);
+        if(optParametroFound.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.ok(optParametroModelFound.get());
+        return ResponseEntity.ok(optParametroFound.get());
     }
 }

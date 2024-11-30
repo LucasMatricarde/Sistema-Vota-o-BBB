@@ -9,11 +9,10 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Document(collection = "parametro")
-public class ParametroModel {
+@Document(collection = "participante")
+public class Participante {
 
     @Id
-    private String key;
-    private String value;
-
+    private String id;
+    private String name;
 }

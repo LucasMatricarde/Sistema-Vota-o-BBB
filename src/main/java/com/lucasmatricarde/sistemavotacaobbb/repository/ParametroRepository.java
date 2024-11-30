@@ -1,8 +1,8 @@
 package com.lucasmatricarde.sistemavotacaobbb.repository;
 
-import com.lucasmatricarde.sistemavotacaobbb.model.ParametroModel;
+import com.lucasmatricarde.sistemavotacaobbb.model.Parametro;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-public interface ParametroRepository extends MongoRepository<ParametroModel, String> {
+public interface ParametroRepository extends MongoRepository<Parametro, String> {
 
 }
