@@ -25,7 +25,7 @@ public class ParametroController {
     }
 
     @GetMapping("/get")
-    public ResponseEntity<ParametroModel> get(@RequestBody String key) {
+    public ResponseEntity<ParametroModel> get(@RequestParam String key) {
         Optional<ParametroModel> optParametroModelFound = parametroRepository.findById(key);
         if(optParametroModelFound.isEmpty()) {
             return ResponseEntity.notFound().build();
